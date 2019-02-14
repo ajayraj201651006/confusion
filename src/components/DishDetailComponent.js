@@ -10,7 +10,8 @@ class DishDetail extends Component {
                 <div key={cmt.id}>
                  <ul className="list-unstyled">
                    <li>{cmt.comment}</li>
-                   <li>{cmt.author} {cmt.date}</li>
+                   <p></p>
+                   <li>-- {cmt.author} {cmt.date}</li>
                  </ul>
                 </div>
             );
