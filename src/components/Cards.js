@@ -5,13 +5,15 @@ class Cards extends Component {
 
     renderDish (dish) {
        return (
-        <Card>
-            <CardImg top width="100%" src={dish.image} alt={dish.name} />
+        <div>
+          <Card>
+            <CardImg top src={dish.image} alt={dish.name} />
             <CardBody>
                 <CardTitle tag="h3">{dish.name}</CardTitle>
                 <CardText>{dish.description}</CardText>
             </CardBody>
-        </Card>
+          </Card>
+        </div>
        );
     }
 
