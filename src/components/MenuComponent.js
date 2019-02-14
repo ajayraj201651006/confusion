@@ -7,15 +7,15 @@ class Menu extends Component {
        selectedDish: null
     }
 
-    onDishSelect (dish) {
+    onDishSelect = (dish) => {
        this.setState({selectedDish: dish});
     }
 
-    renderDish (dish)  {
-        if(dish!=null) 
+    renderDish = (dish) => {
+        if(dish != null) 
             return (
                 <Card>
-                  <CardImg width="100%" object src={dish.image} alt={dish.name} />
+                  <CardImg top src={dish.image} alt={dish.name} />
                   <CardBody>
                       <CardTitle>{dish.name}</CardTitle>
                       <CardText>{dish.description}</CardText>
@@ -35,9 +35,10 @@ class Menu extends Component {
         const menu = this.props.dishes.map((dish) => {
             return (
                 <div key={dish.id} className="col-12 col-md-5 m-1">
-                   <Card onClick={() => this.onDishSelect(dish)}>
-                        <CardImg width="100%" object src={dish.image} alt={dish.name} />
-                       <CardImgOverlay body className="ml-5">
+                   <Card 
+                     onClick={() => this.onDishSelect(dish)}>
+                       <CardImg width="100%" src={dish.image} alt={dish.name} />
+                       <CardImgOverlay>
                            <CardTitle>{dish.name}</CardTitle>
                        </CardImgOverlay>
                    </Card>
