@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardTitle, CardBody, CardText } from 'reactstrap';
+// import { Card, CardImg, CardImgOverlay, CardTitle, CardBody, CardText } from 'reactstrap';
 import Cards from './Cards';
 
 class DishDetail extends Component {
@@ -11,7 +11,7 @@ class DishDetail extends Component {
                  <ul className="list-unstyled">
                    <li>{cmt.comment}</li>
                    <p></p>
-                   <li>-- {cmt.author} {cmt.date}</li>
+                   <li>-- {cmt.author} {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(cmt.date)))}</li>
                  </ul>
                 </div>
             );
@@ -19,7 +19,7 @@ class DishDetail extends Component {
 
         if(comment != null) {
          return (
-               <div>
+               <div className="container">
                  <h4>Comments</h4>
                  {rdc}
                </div>
@@ -33,14 +33,14 @@ class DishDetail extends Component {
     }
     
     render() {
-        if(this.props.selectDish != null) {
+        if(this.props.dish != null) {
         return (
             <div className="row">
                <div className="col-12 12 col-md-5 m-1">
-                   <Cards cardDish={this.props.selectDish} />
+                   <Cards cardDish={this.props.dish} />
                </div>
                <div className="col-12 col-md-5 m-1">
-                  {this.renderComments(this.props.selectDish.comments)}
+                  {this.renderComments(this.props.dish.comments)}
                </div>
             </div>
         );
