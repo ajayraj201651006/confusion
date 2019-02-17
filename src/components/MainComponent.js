@@ -5,16 +5,17 @@ import { DISHES } from '../shared/Dishes';
 import DishDetail from './DishDetailComponent';
 
 
+
 class Main extends Component {
 
   state = {
-    dishes: DISHES,
-    selectedDish: null
-  }
-
-  onDishSelect = (dishId) => {
-    this.setState({selectedDish: dishId});
- }
+        dishes: DISHES,
+        selectedDish: null
+    }
+ 
+  onDishSelect = (dish) => {
+        this.setState({selectedDish: dish});
+    }
 
   render() {
     return (
@@ -25,9 +26,8 @@ class Main extends Component {
          </div>
        </Navbar>
        <Menu dishes={this.state.dishes} 
-            Clicked={(dishId)=>this.onDishSelect(dishId)} />
-       <DishDetail
-            dish={this.state.dishes.filter((dish) => dish.id === this.state.selctedDish)[0]} />
+             clicked={(dishId)=>{this.onDishSelect(dishId)}} />
+       <DishDetail selectDish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
       </div>
     );
   }
