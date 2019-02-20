@@ -3,16 +3,23 @@ import Menu from './MenuComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent.js';
 import { DISHES } from '../shared/Dishes';
+import { COMMENTS } from '../shared/Comments';
+import { PROMOTIONS } from '../shared/Promotions';
+import { LEADERS } from '../shared/Leaders';
 import Contact from './ContactComponent';
 import Home from './HomeComponent';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 
 
+
 class Main extends Component {
 
   state = {
-        dishes: DISHES
+        dishes: DISHES,
+        comments: COMMENTS,
+        promotions: PROMOTIONS,
+        leaders: LEADERS
         // selectedDish: null
     }
  
@@ -23,7 +30,9 @@ class Main extends Component {
   render() {
     const HomePage = () => {
        return (
-          <Home />
+          <Home dish={this.state.dishes.filter((dish) => dish.featured)[0]}
+                promotion={this.state.promotions.filter((promo) => promo.featured)[0]} 
+                leader={this.state.leaders.filter((leader) => leader.featured)[0]} />
        );
     }
 
