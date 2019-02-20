@@ -5,25 +5,25 @@ import { Link } from 'react-router-dom';
 
 function About(props) {
 
-    const RenderLeader = props.leaders.map((leader) => {
+    const RenderLeader = ({leader}) => {
+        return (
+                <Media className="col-12 mt-5">
+                    <Media left middle>
+                        <Media object src={leader.image} alt={leader.name} />
+                    </Media>
+                        <Media body className="ml-5">
+                            <Media heading>{leader.name}</Media>
+                            <p>{leader.designation}</p>
+                            <p>{leader.description}</p>
+                        </Media>
+                </Media>
+        );
+    }
+
+    const leaders = props.leaders.map((leader) => {
         return (
             <div key={leader.id} className="container">
-                <div className="row m-3">
-                    <Media>
-                        <Media left href="#">
-                            <Media object src={leader.image} alt={leader.name} />
-                        </Media>
-                        <div className="ml-5">
-                            <Media body>
-                                <Media heading>
-                                    {leader.name}
-                                </Media>
-                                <p>{leader.designation}</p>
-                                {leader.description}
-                            </Media>
-                        </div>
-                    </Media>
-                </div>
+                <RenderLeader leader={leader} />
             </div>
         );
     });
@@ -84,7 +84,7 @@ function About(props) {
                 </div>
                 <div className="col-12">
                     <Media list>
-                        {RenderLeader}
+                        {leaders}
                     </Media>
                 </div>
             </div>
