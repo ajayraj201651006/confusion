@@ -1,9 +1,20 @@
-import React from 'react';
-import { Breadcrumb, BreadcrumbItem } from 'reactstrap'; 
+import React, { Component } from 'react';
+import { Breadcrumb, BreadcrumbItem, Button, Label, Form, FormGroup, Col, Input } from 'reactstrap'; 
 import { Link } from 'react-router-dom';
 
-const contact = (props) => {
-     return (
+class Contact extends Component {
+
+    state = {
+        firstname: '',
+        lastname: '',
+        telnum: '',
+        agree: false,
+        contactType: 'Tel.',
+        message: ''
+    }
+
+     render() {
+        return (
             <div className="container">
                 <div className="row">
                     <Breadcrumb>
@@ -41,8 +52,27 @@ const contact = (props) => {
                         </div>
                     </div>
                 </div>
+                <div className="row row-content">
+                    <div className="col-12">
+                        <h3>Send us Your Feedback</h3>
+                    </div>
+                    <div className="col-12 md-9">
+                        <Form>
+                            <FormGroup row>
+                                <Label htmlFor="firstname" md={2}>First Name</Label>
+                                <Col md={10}>
+                                    <Input type="text" id="firstname" name="firstname"
+                                            placeholder="First Name"
+                                            value={this.state.firstname} />
+                                </Col>
+                            </FormGroup>
+                        </Form>
+                    </div>
+                </div>
         </div>
      );
+ }
+     
 }
 
-export default contact;
+export default Contact;
