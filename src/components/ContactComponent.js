@@ -24,9 +24,9 @@ class Contact extends Component {
         });
     }
 
-    handelSubmit = (event) => {
+    handleSubmit = (event) => {
            console.log("Current State is: " + JSON.stringify(this.state));
-           alert("Current State: " + JSON.stringify(this.state));
+           alert("Current State is: " + JSON.stringify(this.state));
            event.preventDefault();
     }
 
