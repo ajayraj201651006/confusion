@@ -18,6 +18,13 @@ class Header extends Component {
         this.setState({isModalOpen: !this.state.isModalOpen});
     }
 
+    handleLogin = (event) => {
+        this.toggleModal();
+        alert("Username: " + this.username.value + " Password: " + this.password.value +
+              " Remeber: " + this.remember.checked);
+        event.preventDefault();
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -74,18 +81,21 @@ class Header extends Component {
               <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                   <ModalHeader toggle={this.toogleModal}>Login</ModalHeader>
                   <ModalBody>
-                      <Form onSubmit={this.handleSubmit}>
+                      <Form onSubmit={this.handleLogin}>
                           <FormGroup>
                               <Label htmlFor="username">Username</Label>
-                              <Input type="text" id="username" name="username" />
+                              <Input type="text" id="username" name="username" 
+                                innerRef={(input) => this.username = input} />
                           </FormGroup>
                           <FormGroup>
                               <Label htmlFor="password">Password</Label>
-                              <Input type="password" id="password" name="password" />
+                              <Input type="password" id="password" name="password" 
+                                 innerRef={(input) => this.password = input}/>
                           </FormGroup>
                           <FormGroup check>
                               <Label check>
-                                    <Input type="checkbox" name="remember" />
+                                    <Input type="checkbox" name="remember" 
+                                      innerRef={(input) => this.remember = input}/>
                                     Remember Me
                               </Label>
                           </FormGroup>
