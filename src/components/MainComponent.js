@@ -3,10 +3,6 @@ import Menu from './MenuComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent.js';
 import DishDetail from './DishDetailComponent';
-import { DISHES } from '../shared/Dishes';
-import { COMMENTS } from '../shared/Comments';
-import { PROMOTIONS } from '../shared/Promotions';
-import { LEADERS } from '../shared/Leaders';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
 import Home from './HomeComponent';
@@ -17,13 +13,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 class Main extends Component {
 
-  state = {
-        dishes: DISHES,
-        comments: COMMENTS,
-        promotions: PROMOTIONS,
-        leaders: LEADERS
-        // selectedDish: null
-    }
  
   // onDishSelect = (dish) => {
   //       this.setState({selectedDish: dish});
