@@ -3,7 +3,7 @@ import Menu from './MenuComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent.js';
 import DishDetail from './DishDetailComponent';
-import Contact from './ContactComponent';
+import Contact  from './ContactComponent';
 import About from './AboutComponent';
 import Home from './HomeComponent';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
