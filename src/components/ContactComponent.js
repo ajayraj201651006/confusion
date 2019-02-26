@@ -66,7 +66,7 @@ class Contact extends Component {
                                     
                                 </Col>
                             </Row>
-                            {/* <Row className="form-group">
+                            <Row className="form-group">
                                 <Label htmlFor="lastname" md={2}>Last Name</Label>
                                 <Col md={10}>
                                     <Control.text model=".lastname" id="lastname" name="lastname"
@@ -117,7 +117,8 @@ class Contact extends Component {
                                 <Label htmlFor="message" md={2}>Your Feedback</Label>
                                 <Col md={10}>
                                     <Control.textarea model=".textarea" id="message" name="message"
-                                            rows="12" />
+                                            rows="12"
+                                            className="form-control" />
                                 </Col>
                             </Row>
                             <Row className="form-group">
@@ -126,8 +127,8 @@ class Contact extends Component {
                                        Send Feedback
                                     </Button>
                                 </Col>
-                            </Row> */}
-                        </LocalForm>
+                            </Row>
+                         </LocalForm> 
                     </div>
                 </div>
         </div>
