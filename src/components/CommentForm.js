@@ -33,9 +33,9 @@ class CommentForm extends Component {
                         <ModalHeader toggle={this.toggleModalComment}>Submit Comment</ModalHeader>
                         <ModalBody>
                             <LocalForm onSubmit={(values)=>this.handleSubmitComment(values)}>
-                                <Row >
+                                <Row className="form-group m-1">
                                     <Label htmlFor="rating">Rating</Label>
-                                        <Control.select model=".rating" name="rating"
+                                        <Control.select md={6} model=".rating" name="rating"
                                             className="form-control">
                                             <option>1</option>
                                             <option>2</option>
@@ -44,7 +44,7 @@ class CommentForm extends Component {
                                             <option>5</option>
                                         </Control.select>
                                 </Row>
-                                <Row className="form-group">
+                                <Row className="form-group m-1">
                                     <Label htmlFor="author">Your Name</Label>
                                     <Control.text model=".author" id="author" name="author"
                                         placeholder="Your Name"
@@ -63,13 +63,13 @@ class CommentForm extends Component {
                                       }}
                                     />
                                 </Row>
-                                <Row className="form-group">
+                                <Row className="form-group m-1">
                                     <Label htmlFor="comment">Comment</Label>
                                     <Control.textarea model=".comment" id="comment" name="comment"
                                         rows="6"
                                         className="form-control" />
                                 </Row>
-                                <Row className="form-group">
+                                <Row className="form-group m-1">
                                     <Button type="submit" color="primary">
                                         Submit
                                     </Button>
