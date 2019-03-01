@@ -21,9 +21,8 @@ class CommentForm extends Component {
        }
 
        handleSubmitComment = (values) => {
-        console.log("Current State is: " + JSON.stringify(values));
-        alert("Current State is: " + JSON.stringify(values));
- }
+         this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+       }
 
        render() {
            return (
@@ -147,7 +146,7 @@ class CommentForm extends Component {
                </div>
                <div className="col-12 col-md-5 m-1">
                    <RenderComments comment={props.comments} />
-                   <CommentForm />
+                   <CommentForm addComment={props.addComment} dishId={props.selectDish.id} />
                </div>
             </div>
             </div>
