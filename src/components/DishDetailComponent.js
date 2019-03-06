@@ -23,7 +23,7 @@ class CommentForm extends Component {
        }
 
        handleSubmitComment = (values) => {
-         this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+         this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
        }
 
        render() {
@@ -118,7 +118,7 @@ class CommentForm extends Component {
         return (
             <div>
               <Card>
-                <CardImg top src={dish.image} alt={dish.name} />
+                <CardImg top src={baseUrl + dish.image} alt={dish.name} />
                 <CardBody>
                     <CardTitle tag="h3">{dish.name}</CardTitle>
                     <CardText>{dish.description}</CardText>
@@ -168,7 +168,7 @@ class CommentForm extends Component {
                 </div>
                 <div className="col-12 col-md-5 m-1">
                     <RenderComments comment={props.comments} />
-                    <CommentForm addComment={props.addComment} dishId={props.selectDish.id} />
+                    <CommentForm postComment={props.postComment} dishId={props.selectDish.id} />
                 </div>
                 </div>
                 </div>
