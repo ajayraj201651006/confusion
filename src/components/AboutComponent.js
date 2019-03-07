@@ -15,7 +15,7 @@ function About(props) {
                   }}>
                     <Media className="col-12 mt-5">
                         <Media left middle>
-                            <Media object src={baseUrl + leader.image} alt={leader.name} />
+                            <Media width={100} object src={baseUrl + leader.image} alt={leader.name} />
                         </Media>
                             <Media body className="ml-5">
                                 <Media heading>{leader.name}</Media>
