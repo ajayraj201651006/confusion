@@ -42,6 +42,45 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => {
                         alert('Your Comment Could Not be Posted!!!\nError: '+error.message)})
 }
 
+export const postFeedback = (feedId, firstname, lastname, email, telnum, agree, contactType, message) => (dispatch) => {
+    const newFeedback = {
+        feedId: feedId,
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        telnum: telnum,
+        agree: agree,
+        contactType: contactType,
+        message: message
+    } 
+
+    newFeedback.date = new Date().toISOString();
+
+    return fetch(baseUrl + 'feedback', {
+        method: 'POST',
+        body: JSON.stringify(newFeedback),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+    })
+        .then(response => {
+            if(response.ok) {
+                return response;
+            } else {
+                var error = new Error('Error: ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        }, error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+        })
+        .then(response => response.json())
+        .catch(error => {console.log('Post Feedback', error.message)
+                        alert('Your Feeedback Could Not be Posted!!!\nError: '+error.message)})
+}
+
 export const fetchDishes = () => (dispatch) => {
     dispatch(dishesLoading(true));
 

@@ -16,6 +16,9 @@ class Contact extends Component {
            console.log("Current State is: " + JSON.stringify(values));
            alert("Current State is: " + JSON.stringify(values));
            this.props.resetFeedbackForm();
+           this.props.postFeedback(this.props.feedId, values.firstname, values.lastname, values.email, values.telnum,
+                                    values.agree, values.contactType, values.message);
+          
     }
 
 
@@ -93,7 +96,7 @@ class Contact extends Component {
                                             placeholder="Last Name"
                                             className="form-control"
                                             validators={{
-                                                required, minLength: minLength(3), maxLength: maxLength(3) 
+                                                required, minLength: minLength(3), maxLength: maxLength(15) 
                                             }} />
                                     <Errors
                                        className="text-danger"
@@ -174,7 +177,7 @@ class Contact extends Component {
                             <Row className="form-group">
                                 <Label htmlFor="message" md={2}>Your Feedback</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".textarea" id="message" name="message"
+                                    <Control.textarea model=".message" id="message" name="message"
                                             rows="12"
                                             className="form-control" />
                                 </Col>

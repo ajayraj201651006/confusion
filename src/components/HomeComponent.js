@@ -38,7 +38,7 @@ const RenderCard = ({item, isLoading, errMess}) => {
 }
 
 const home = (props) => {
-    console.log(props);
+ 
     return (
         <div className="container">
             <div className="row row-content">
