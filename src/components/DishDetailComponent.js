@@ -105,12 +105,12 @@ class CommentForm extends Component {
         if(comment != null) {
          return (
                <div className="container">
-                 <h4>Comments</h4>
-                 <Stagger in>
-                   <Fade in>
-                    {rdc}
-                   </Fade> 
-                 </Stagger>
+                    <h4>Comments</h4>
+                    <Stagger in>
+                        <Fade in>
+                            {rdc}
+                        </Fade> 
+                    </Stagger>
                </div>
          );
         }
