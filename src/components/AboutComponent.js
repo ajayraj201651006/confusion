@@ -5,13 +5,19 @@ import { baseUrl } from '../shared/BaseUrl';
 import { Stagger, Fade } from 'react-animation-components';
 import { Loading }  from './LoadingComponent';
 
-const RenderLeader = ({leaders,isLoading})  => {
+const RenderLeader = ({leaders,isLoading, errMess})  => {
     if(isLoading)
     {
         return(
                    
-            <Loading/>
+           <Loading/>
           
+        );
+    }
+
+    else if(errMess) {
+        return (
+            <h4>{errMess}</h4>
         );
     }
     
@@ -106,7 +112,7 @@ function About(props) {
                 </div>
                 <div className="col-12">
                     <Media list>
-                        <RenderLeader leaders={props.leaders} isLoading={props.leaderLoading}/>
+                        <RenderLeader leaders={props.leaders} isLoading={props.leaderLoading} errMess={props.leaderErrMess}/>
                     </Media>
                 </div>
             </div>
